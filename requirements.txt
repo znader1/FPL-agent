@@ -4,3 +4,5 @@ langchain-openai
 python-dotenv
 pandas
 streamlit
+beautifulsoup4
+readability-lxml
