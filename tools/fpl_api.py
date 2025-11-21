@@ -29,7 +29,9 @@ def players_df():
             "status": p["status"],     # 'a'=available, 'd'=doubt, 'i'=injured, 's'=suspended
             "news": p.get("news") or "",
             "chance_next": p.get("chance_of_playing_next_round"),
-            "id": p["id"]
+            "id": p["id"],
+             "transfers_in_event": p.get("transfers_in_event", 0),
+             "total_points": p.get("total_points", 0),
         })
     return pd.DataFrame(rows)
 
