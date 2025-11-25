@@ -40,6 +40,8 @@ def build_players_df() -> pd.DataFrame:
             "news": p.get("news") or "",
             "total_points": p.get("total_points", 0),
             "transfers_in_event": p.get("transfers_in_event", 0),
+            "points_per_game": p.get("points_per_game", 0),
+            "event_points": p.get("event_points", 0),
         })
     return pd.DataFrame(rows)
 
@@ -95,7 +97,8 @@ def df_to_table_text(df: pd.DataFrame) -> str:
         return "No candidates found for these filters."
     cols = [
         "player", "team", "position", "now_cost",
-        "form", "ep_next", "total_points", "transfers_in_event", "score"
+        "form", "ep_next", "total_points", "transfers_in_event", "score",
+        "points_per_game"
     ]
     return df[cols].to_string(index=False, float_format=lambda x: f"{x:.2f}")
 
